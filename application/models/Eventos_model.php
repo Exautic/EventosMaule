@@ -20,6 +20,13 @@ class Eventos_model extends CI_Model {
         return $resultados->row();
     }
     
+    public function getEvento2($idusuarios, $estado){
+        $this->db->where("publicador", $idusuarios);
+        $this->db->where("estado_evento", $estado);
+        $resultados = $this->db->get("eventos");
+        return $resultados->result();
+    }
+    
     public function update($ideventos, $data){
         $this->db->where("ideventos", $ideventos);
         

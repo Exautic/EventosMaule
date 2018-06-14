@@ -47,7 +47,7 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Eventos</a></li>
+                            <li><a href="<?php echo base_url();?>Organizador/Eventos"><i class="fa fa-circle-o"></i> Eventos</a></li>
                             <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Reportes</a></li>
                         </ul>
                     </li>

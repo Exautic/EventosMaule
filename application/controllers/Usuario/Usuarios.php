@@ -4,14 +4,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuarios extends CI_Controller {
 
-    
+       private $permisos;
     public function __construct() {
         parent::__construct();
+        $this->permisos = $this->backend_lib->control();
         $this->load->model("Usuarios_model");
     }
 
     public function index() {
-        $id = "3";
+        $id = "8";
         $data = array(
             'usuarios' => $this->Usuarios_model->getUsuario2($id),    
         );

@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Eventos Propios
+            Eventos Publicados
             <small>Editar</small>
         </h1>
     </section>
@@ -21,7 +21,7 @@
                                 <p><i class="icon fa fa-ban"><?php echo $this->session->flashdata("error")?></i></p>
                             </div>
                         <?php endif; ?>
-                        <form action="<?php echo base_url(); ?>Usuario/Eventos/update" method="POST">
+                        <form action="<?php echo base_url(); ?>Organizador/Eventos/update" method="POST">
                             <input type="hidden" value="<?php echo $eventos->ideventos ?>" name="ideventos">
                             <div class="form-group">
                                 <label for="nombre_evento">Nombre</label>

@@ -8,27 +8,26 @@ class Eventos extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->permisos = $this->backend_lib->control();
+         $this->permisos = $this->backend_lib->control();
         $this->load->model("Eventos_model");
     }
 
     public function index() {
-        $id = "8";
+        $id = "7";
         $estado = "1";
-
         $data = array(
             'eventos' => $this->Eventos_model->getEvento2($id, $estado),
         );
         $this->load->view('layouts/header');
         $this->load->view('layouts/aside');
-        $this->load->view('usuario/eventos/list', $data);
+        $this->load->view('organizador/eventos/list', $data);
         $this->load->view('layouts/footer');
     }
 
     public function add() {
         $this->load->view('layouts/header');
         $this->load->view('layouts/aside');
-        $this->load->view('usuario/eventos/add');
+        $this->load->view('organizador/eventos/add');
         $this->load->view('layouts/footer');
     }
 
@@ -60,10 +59,10 @@ class Eventos extends CI_Controller {
         );
 
         if ($this->Eventos_model->save($data)) {
-            redirect(base_url() . "Usuario/Eventos/");
+            redirect(base_url() . "Organizador/Eventos/");
         } else {
             $this->session->set_flashdata("error", "No se pudo guardar la informacion");
-            redirect(base_url() . "Usuario/Eventos/add");
+            redirect(base_url() . "Organizador/Eventos/add");
         }
     }
 
@@ -73,7 +72,7 @@ class Eventos extends CI_Controller {
         );
         $this->load->view('layouts/header');
         $this->load->view('layouts/aside');
-        $this->load->view('usuario/eventos/edit', $data);
+        $this->load->view('organizador/eventos/edit', $data);
         $this->load->view('layouts/footer');
     }
 
@@ -102,11 +101,12 @@ class Eventos extends CI_Controller {
             "estado_evento" => $estado_evento,
             "publicador" => $publicador,
         );
+        $ideventos = "7";
         if ($this->Eventos_model->update($ideventos, $data)) {
-            redirect(base_url() . "Usuario/Eventos");
+            redirect(base_url() . "Organizador/Eventos");
         } else {
             $this->session->set_flashdata("error", "No se pudo actualizar la informacion");
-            redirect(base_url() . "Usuario/Eventos/edit/" . $ideventos);
+            redirect(base_url() . "Organizador/Eventos/edit/" . $ideventos);
         }
     }
 
@@ -114,7 +114,7 @@ class Eventos extends CI_Controller {
         $data = array(
             "eventos" => $this->Eventos_model->getEvento($ideventos)
         );
-        $this->load->view("usuario/eventos/view", $data);
+        $this->load->view("organizador/eventos/view", $data);
     }
 
     public function delete($ideventos) {
@@ -122,7 +122,7 @@ class Eventos extends CI_Controller {
             "estado_Evento" => "0",
         );
         $this->Eventos_model->update($ideventos, $data);
-        echo "Usuario/Eventos";
+        echo "Organizador/Eventos";
     }
 
 }

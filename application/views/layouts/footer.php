@@ -122,7 +122,30 @@
             });
         });
 
-
+        //Modales User Evento
+        $('.btn-viewEvento').on("click", function () {
+            var base_url = "<?php echo base_url(); ?>";
+            var ideventos = $(this).val();
+            $.ajax({
+                url: base_url + "Usuario/Eventos/view/" + ideventos,
+                type: 'POST',
+                success: function (resp) {
+                    $("#modal-default .modal-body").html(resp);
+                    //alert(resp);
+                }
+            });
+        });
+        $('.btn_removeEvento').on("click", function (e) {
+            e.preventDefault();
+            var ruta = $(this).attr("href");
+            $.ajax({
+                url: ruta,
+                type: 'POST',
+                success: function (resp) {
+                    window.location.href = base_url + resp;
+                }
+            });
+        });
 
         //Tabla
         $('#example1').DataTable();

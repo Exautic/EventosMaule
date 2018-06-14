@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Eventos Propios
+            Eventos en la Plataforma
             <small>Listado</small>
         </h1>
     </section>
@@ -15,8 +15,7 @@
             <div class="box-body">
                 <div class='row'>
                     <div class='col-md-12'>
-                        <a href="<?php echo base_url(); ?>Usuario/Eventos/add" class='btn btn-primary btn-flat'><span class='fa fa-plus'></span>Publicar Evento</a>
-
+                        <a href="<?php echo base_url(); ?>Organizador/Eventos/add" class='btn btn-primary btn-flat'><span class='fa fa-plus'></span>Publicar Evento</a>                
                     </div>
                 </div>
                 <hr>
@@ -46,11 +45,13 @@
                                             <td><?php echo $eventos->estado_evento; ?></td>
                                             <td>
                                                 <div class='btn_group'>
-                                                    <a href="<?php echo base_url(); ?>Usuario/Eventos/edit/<?php echo $eventos->ideventos ?>" class='btn btn-warning'><span class='fa fa-pencil'></span></a>
-                                                    <button type="button" class="btn btn-info btn-viewEvento" data-toggle="modal" data-target="#modal-default" value="<?php echo $eventos->ideventos ?>">
+                                                    <a href="<?php echo base_url();?>Organizador/Eventos/edit/<?php echo $eventos->ideventos ?>" class='btn btn-warning'><span class='fa fa-pencil'></span></a>
+                                                   
+                                                    <button type="button" class="btn btn-info btn-view2" data-toggle="modal" data-target="#modal-default" value="<?php echo $eventos->ideventos ?>">
                                                         <span class="fa fa-search"></span>
                                                     </button>
-                                                    <a href="<?php echo base_url(); ?>Usuario/Eventos/delete/<?php echo $eventos->ideventos ?>" class='btn btn-danger btn_removeEvento'><span class='fa fa-remove'></span></a>
+                                                    <a href="<?php echo base_url();?>Organizador/Eventos/delete/<?php echo $eventos->ideventos ?>" class='btn btn-danger btn_remove2'><span class='fa fa-remove'></span></a>
+                                                   
                                                 </div>
                                             </td>
                                         </tr>
@@ -79,7 +80,7 @@
                 <h4 class="modal-title">Informacion del Usuario</h4>
             </div>
             <div class="modal-body">
-
+                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
