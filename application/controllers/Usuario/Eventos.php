@@ -15,7 +15,7 @@ class Eventos extends CI_Controller {
     public function index() {
         $data = array(
             'permisos' => $this->permisos,
-            'eventos' => $this->Eventos_model->getEventos(),
+            'eventos' => $this->Eventos_model->getEvento($this->session->userdata(idusuario)),
         );
         $this->load->view('layouts/header');
         $this->load->view('layouts/aside');

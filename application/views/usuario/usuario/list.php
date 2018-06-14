@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Usuarios de la plataforma
+            Usuario de la plataforma
             <small>Listado</small>
         </h1>
     </section>
@@ -13,47 +13,36 @@
         <!-- Default box -->
         <div class="box box-solid">
             <div class="box-body">
-                <div class='row'>
-                    <div class='col-md-12'>
-                        <?php if ($permisos->insert == 1): ?>
-                            <a href="<?php echo base_url(); ?>Mantenimiento/Usuarios/add" class='btn btn-primary btn-flat'><span class='fa fa-plus'></span>Agregar Usuarios</a>
-                        <?php endif; ?>
-                    </div>
-                </div>
                 <hr>
                 <div class='row'>
                     <div class='col-md-12'>
                         <table id="example1" class='table table-bordered btn-hover'>
                             <thead>
                                 <tr>
-                                    <th>#</th>
                                     <th>E-mail</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Telefono</th>
+                                    <th>Ciudad</th>
                                     <th>User</th>
                                     <th>Clave</th>
-                                    <th>Rol</th>
-                                    <th>Opciones</th>
+                                    <th>Editar Informacion</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php if (!empty($usuarios)): ?>
                                     <?php foreach ($usuarios as $usuarios): ?>
                                         <tr>
-                                            <td><?php echo $usuarios->idusuarios; ?></td>
                                             <td><?php echo $usuarios->email_usuario; ?></td>
+                                            <td><?php echo $usuarios->nombre_usuario; ?></td>
+                                            <td><?php echo $usuarios->apellido_usuario; ?></td>
+                                            <td><?php echo $usuarios->telefono; ?></td>
+                                            <td><?php echo $usuarios->ciudad_usuario; ?></td>
                                             <td><?php echo $usuarios->user_usuario; ?></td>
                                             <td><?php echo $usuarios->clave_usuario; ?></td>
-                                            <td><?php echo $usuarios->rol_id; ?></td>
                                             <td>
                                                 <div class='btn_group'>
-                                                    <?php if ($permisos->update == 1): ?>
-                                                        <a href="<?php echo base_url(); ?>Mantenimiento/Usuarios/edit/<?php echo $usuarios->idusuarios ?>" class='btn btn-warning'><span class='fa fa-pencil'></span></a>
-                                                    <?php endif; ?>
-                                                    <button type="button" class="btn btn-info btn-view1" data-toggle="modal" data-target="#modal-default" value="<?php echo $usuarios->idusuarios ?>">
-                                                        <span class="fa fa-search"></span>
-                                                    </button>
-                                                    <?php if ($permisos->delete == 1): ?>
-                                                        <a href="<?php echo base_url(); ?>Mantenimiento/Usuarios/delete/<?php echo $usuarios->idusuarios ?>" class='btn btn-danger btn_remove1'><span class='fa fa-remove'></span></a>
-                                                    <?php endif; ?>
+                                                    <a href="<?php echo base_url(); ?>Usuario/Usuarios/edit/<?php echo $usuarios->idusuarios ?>" class='btn btn-warningEdit'><span class='fa fa-pencil'></span></a>
                                                 </div>
                                             </td>
                                         </tr>

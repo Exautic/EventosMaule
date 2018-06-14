@@ -16,6 +16,42 @@ class Auth extends CI_Controller {
             $this->load->view('admin/login');
         }
     }
+    
+    public function register(){
+         $this->load->view('admin/register');
+    }
+
+    public function registro(){
+        $nombre_usuario = $this->input->post("nombre_usuario");
+        $apellido_usuario = $this->input->post("apellido_usuario");
+        $telefono = $this->input->post("telefono");
+        $ciudad_usuario = $this->input->post("ciudad_usuario");
+        $email_usuario = $this->input->post("email_usuario");
+        $user_usuario = $this->input->post("user_usuario");
+        $clave_usuario = $this->input->post("clave_usuario");
+        $rol_id = "2";
+        $estado_usuario = "1";
+        $data = array(
+            "nombre_usuario" => $nombre_usuario,
+            "apellido_usuario" => $apellido_usuario,
+            "telefono" => $telefono,
+            "ciudad_usuario" => $ciudad_usuario,
+            "email_usuario" => $email_usuario,
+            "user_usuario" => $user_usuario,
+            "clave_usuario" => $clave_usuario,
+            "rol_id" => $rol_id,
+            "estado_usuario" => $estado_usuario,
+        );
+        
+        if ($this->Usuarios_model->save($data)) {
+            $this->session->set_flashdata("registrado", "Registro completo");
+            redirect(base_url()."Auth/index");
+        }else{
+            $this->session->set_flashdata("error", "No se pudo guardar la informacion");
+            redirect(base_url()."Auth/register");
+        }
+    }
+
 
     public function login() {
         $user_usuario = $this->input->post("user_usuario");
@@ -47,5 +83,7 @@ class Auth extends CI_Controller {
         $this->session->sess_destroy();
         redirect(base_url());
     }
+    
+    
 
 }

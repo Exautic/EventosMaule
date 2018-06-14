@@ -24,7 +24,7 @@
 <script src="<?php echo base_url(); ?>assets/template/dist/js/demo.js"></script>
 <script>
     $(document).ready(function () {
-        //Modales Categoria
+        //Modales Admin Categoria
         $('.btn-view').on("click", function () {
             var base_url = "<?php echo base_url(); ?>";
             var idcategoria_eventos = $(this).val();
@@ -48,7 +48,7 @@
                 }
             });
         });
-        //Modales Usuario
+        //Modales Admin Usuario
         $('.btn-view1').on("click", function () {
             var base_url = "<?php echo base_url(); ?>";
             var idusuarios = $(this).val();
@@ -72,7 +72,7 @@
                 }
             });
         });
-        //Modales Evento
+        //Modales Admin Evento
         $('.btn-view2').on("click", function () {
             var base_url = "<?php echo base_url(); ?>";
             var ideventos = $(this).val();
@@ -97,9 +97,36 @@
             });
         });
 
+        //Modales User Usuario
+        $('.btn-viewUser').on("click", function () {
+            var base_url = "<?php echo base_url(); ?>";
+            var ideventos = $(this).val();
+            $.ajax({
+                url: base_url + "Mantenimiento/Eventos/view/" + ideventos,
+                type: 'POST',
+                success: function (resp) {
+                    $("#modal-default .modal-body").html(resp);
+                    //alert(resp);
+                }
+            });
+        });
+        $('.btn_removeUser').on("click", function (e) {
+            e.preventDefault();
+            var ruta = $(this).attr("href");
+            $.ajax({
+                url: ruta,
+                type: 'POST',
+                success: function (resp) {
+                    window.location.href = base_url + resp;
+                }
+            });
+        });
+
+
+
         //Tabla
         $('#example1').DataTable();
-        
+
         $('.sidebar-menu').tree();
     })
 </script>

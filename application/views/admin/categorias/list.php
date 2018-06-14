@@ -15,8 +15,10 @@
             <div class="box-body">
                 <div class='row'>
                     <div class='col-md-12'>
-                        <a href="<?php echo base_url(); ?>Mantenimiento/Categorias_eventos/add" class='btn btn-primary btn-flat'><span class='fa fa-plus'></span>Agregar Categorias</a>
-
+                        <?php if($permisos->insert == 1): ?>
+                        <a href="<?php echo base_url(); ?>Mantenimiento/Categorias_eventos/add" class='btn btn-primary btn-flat'>
+                            <span class='fa fa-plus'></span>Agregar Categorias</a>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <hr>
@@ -38,11 +40,15 @@
                                             <td><?php echo $categoria_evento->nombre_categoria; ?></td>
                                             <td>
                                                 <div class='btn_group'>
+                                                    <?php if($permisos->update == 1): ?>
                                                     <a href="<?php echo base_url();?>Mantenimiento/Categorias_eventos/edit/<?php echo $categoria_evento->idcategoria_eventos ?>" class='btn btn-warning'><span class='fa fa-pencil'></span></a>
+                                                    <?php endif;?>
                                                     <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $categoria_evento->idcategoria_eventos ?>">
                                                         <span class="fa fa-search"></span>
                                                     </button>
+                                                    <?php if($permisos->delete == 1): ?>
                                                     <a href="<?php echo base_url();?>Mantenimiento/Categorias_eventos/delete/<?php echo $categoria_evento->idcategoria_eventos ?>" class='btn btn-danger btn_remove'><span class='fa fa-remove'></span></a>
+                                                    <?php endif; ?>
                                                 </div>
                                             </td>
                                         </tr>

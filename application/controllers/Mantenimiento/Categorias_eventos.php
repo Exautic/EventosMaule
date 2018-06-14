@@ -4,13 +4,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Categorias_eventos extends CI_Controller {
 
+    private $permisos;
+    
+    
     public function __construct() {
         parent::__construct();
+        $this->permisos = $this->backend_lib->control();
         $this->load->model("Categorias_model");
     }
 
     public function index() {
         $data = array(
+            'permisos' => $this->permisos,
             'categoria_evento' => $this->Categorias_model->getCategorias(),
         );
         $this->load->view('layouts/header');

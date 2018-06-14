@@ -1,62 +1,76 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Log in</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  
-  <!-- base_url() = http://localhost/ventas_ci/-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>AdminLTE 2 | Log in</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/template/bootstrap/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/template/font-awesome/css/font-awesome.min.css">
+        <!-- base_url() = http://localhost/ventas_ci/-->
 
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/template/dist/css/AdminLTE.min.css">
+        <!-- Bootstrap 3.3.7 -->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/font-awesome/css/font-awesome.min.css">
 
-</head>
-<body class="hold-transition login-page">
-    <div class="login-box">
-        <div class="login-logo">
-            <h2>Eventos Maule</h2>
-        </div>
-        <!-- /.login-logo -->
-        <div class="login-box-body">
-            <p class="login-box-msg">Introduzca sus datos de ingreso</p>
-            <?php if($this->session->flashdata("error")):?>
-            <div class='alert alert-danger'>
-                <p><?php echo $this->session->flashdata("error")?></p>
+        <!-- Theme style -->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/dist/css/AdminLTE.min.css">
+
+    </head>
+    <body class="hold-transition login-page">
+        <div class="login-box">
+            <div class="login-logo">
+                <h2>Eventos Maule</h2>
             </div>
-            <?php endif;?>
-            <form action="<?php echo base_url();?>auth/login" method="post">
-                <div class="form-group has-feedback">
-                    <input id="user_usuario" name="user_usuario" type="text" class="form-control" placeholder="Usuario">
-                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input  id="clave_usuario" name="clave_usuario" type="password" class="form-control" placeholder="Password">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+            <!-- /.login-logo -->
+            <div class="login-box-body">
+                <p class="login-box-msg">Introduzca sus datos de ingreso</p>
+                <?php if ($this->session->flashdata("error")): ?>
+                    <div class='alert alert-danger'>
+                        <p><?php echo $this->session->flashdata("error") ?></p>
                     </div>
-                    <!-- /.col -->
-                </div>
-            </form>
+                <?php endif; ?>
+                <?php if ($this->session->flashdata("registrado")): ?>
+                    <div class='alert alert-danger'>
+                        <p><?php echo $this->session->flashdata("registrado") ?></p>
+                    </div>
+                <?php endif; ?>
+                <form action="<?php echo base_url(); ?>auth/login" method="post">
+                    <div class="form-group has-feedback">
+                        <input id="user_usuario" name="user_usuario" type="text" class="form-control" placeholder="Usuario">
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input  id="clave_usuario" name="clave_usuario" type="password" class="form-control" placeholder="Password">
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <br>
+                </form>
 
+                <form action="<?php echo base_url(); ?>auth/register" method="post">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button type="submit" class="btn btn-success btn-block btn-flat">Registrarse</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <!-- /.login-box-body -->
         </div>
-        <!-- /.login-box-body -->
-    </div>
-    <!-- /.login-box -->
+        <!-- /.login-box -->
 
-<!-- jQuery 3 -->
-<script src="<?php echo base_url();?>assets/template/jquery/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="<?php echo base_url();?>assets/template/bootstrap/js/bootstrap.min.js"></script>
+        <!-- jQuery 3 -->
+        <script src="<?php echo base_url(); ?>assets/template/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 3.3.7 -->
+        <script src="<?php echo base_url(); ?>assets/template/bootstrap/js/bootstrap.min.js"></script>
 
-</body>
+    </body>
 </html>

@@ -14,15 +14,16 @@
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-cogs"></i> <span>Mantenimiento</span>
+                            <i class="fa fa-cogs"></i> <span>Administrador</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?php echo base_url();?>Mantenimiento/Categorias_eventos"><i class="fa fa-circle-o"></i> Categorias de Eventos</a></li>
                             <li><a href="<?php echo base_url();?>Mantenimiento/Usuarios"><i class="fa fa-circle-o"></i> Usuarios</a></li>
                             <li><a href="<?php echo base_url();?>Mantenimiento/Eventos"><i class="fa fa-circle-o"></i> Eventos</a></li>
+                            <li><a href="<?php echo base_url();?>Mantenimiento/Categorias_eventos"><i class="fa fa-circle-o"></i> Categorias</a></li>
+                            <li><a href="<?php echo base_url();?>Administrador/Permisos"><i class="fa fa-circle-o"></i> Permisos</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -33,8 +34,9 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Eventos</a></li>
-                            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Amigos</a></li>
+                            <li><a href="<?php echo base_url();?>Usuario/Usuarios"><i class="fa fa-circle-o"></i> Perfil</a></li>
+                            <li><a href="<?php echo base_url();?>Usuario/Eventos"><i class="fa fa-circle-o"></i> Eventos</a></li>
+                            <li><a href="<?php echo base_url();?>Usuario/Usuarios"><i class="fa fa-circle-o"></i> Amigos</a></li>
                         </ul>
                     </li>
                     <li class="treeview">

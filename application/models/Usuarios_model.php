@@ -16,6 +16,11 @@ class Usuarios_model extends CI_Model {
         }
     }
     
+    public function getRoles(){
+        $resultados = $this->db->get("roles_usuarios");
+        return $resultados->result();
+    }
+    
      public function getUsuarios(){
         $this->db->where("estado_usuario", "1");
         $resultados = $this->db->get("usuarios");
@@ -32,6 +37,13 @@ class Usuarios_model extends CI_Model {
         return $resultados->row();
     }
     
+    public function getUsuario2($idusuario){
+        $this->db->where("idusuarios", $idusuario);
+        $resultados = $this->db->get("usuarios");
+        return $resultados->result();
+    }
+
+
     public function update($idusuarios, $data){
         $this->db->where("idusuarios", $idusuarios);
         
